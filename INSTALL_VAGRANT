@@ -1,13 +1,8 @@
 #!/bin/sh
 
-# i3
-rm -rf ~/.i3
-mkdir ~/.config/i3
-cp ./dotfiles/i3/config ~/.config/i3/
-
-# termite
-mkdir ~/.config/termite
-cp ./dotfiles/termite/config ~/.config/termite/
-
 # vim
 cp ./dotfiles/vim/.vimrc ~/
+
+# bashrc
+cp ~/.bashrc ~/.bashrc.save
+cp ./dotfiles/bash/.bashrc ~/
