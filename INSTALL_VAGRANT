@@ -4,5 +4,5 @@
 cp ./dotfiles/vim/.vimrc ~/
 
 # bashrc
-cp ~/.bashrc ~/.bashrc.save
-cp ./dotfiles/bash/.bashrc ~/
+#cp ~/.bashrc ~/.bashrc.save
+#cp ./dotfiles/bash/.bashrc ~/
