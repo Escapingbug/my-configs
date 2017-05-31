@@ -1,0 +1,47 @@
+#!/bin/python
+import argparse
+import shutil
+import os
+from os.path import expanduser
+
+def parse_arg():
+    parser = argparse.ArgumentParser(description='give me a challenge!')
+    parser.add_argument('challenge', help='challenge name')
+    parser.add_argument('ctf_name', help='name of this ctf')
+    parser.add_argument('-p', '--practice', help='is this contest?', action='store_true')
+    args = parser.parse_args()
+    return args
+
+def get_my_path(base_dir, ctf_name, challenge, is_contest):
+    base_dir = expanduser(base_dir)
+    base_dir += '/ctf/'
+    if not os.path.exists(base_dir):
+        os.mkdir(base_dir)
+    if is_contest:
+        base_dir += 'contests/'
+    else:
+        base_dir += 'practice/'
+    if not os.path.exists(base_dir):
+        os.mkdir(base_dir)
+    base_dir += ctf_name + '/'
+    if not os.path.exists(base_dir):
+        os.mkdir(base_dir)
+    base_dir += challenge + '/'
+    if not os.path.exists(base_dir):
+        os.mkdir(base_dir)
+    base_dir += challenge
+    return base_dir
+
+    
+def main():
+    base_dir = '~/project/'
+    args = parse_arg()
+    challenge = args.challenge
+    ctf_name = args.ctf_name
+    is_contest = True if not args.practice else False
+    path = get_my_path(base_dir, ctf_name, challenge, is_contest) 
+
+    shutil.copyfile(challenge, path)
+
+if __name__ == "__main__":
+    main()

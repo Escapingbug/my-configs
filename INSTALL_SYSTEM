@@ -47,5 +47,8 @@ cd ~/.vim/bundle/YouCompleteMe
 cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm
 cp .ycm_extra_conf.py ~/
 
+sudo chmod +x ./bins/*
+sudo cp ./bins/* /usr/bin/
+
 # configs
 source ./INSTALL_CONFIGS
