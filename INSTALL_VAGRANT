@@ -2,7 +2,7 @@
 
 # vim
 cp ./dotfiles/vim/.vimrc ~/
-echo "let g:ycm_global_ycm_extra_conf = $HOME/.ycm_extra_conf.py" >> ~/.vimrc
+echo "let g:ycm_global_ycm_extra_conf = '$HOME/.ycm_extra_conf.py'" >> ~/.vimrc
 
 
 # bashrc
