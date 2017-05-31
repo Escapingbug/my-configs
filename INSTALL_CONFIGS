@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# i3
+rm -rf ~/.i3
+mkdir ~/.config/i3
+cp ./dotfiles/i3/config ~/.config/i3/
+
+# termite
+mkdir ~/.config/termite
+cp ./dotfiles/termite/config ~/.config/termite/
+
+# vim
+cp ./dotfiles/vim/.vimrc ~/
+echo "let g:ycm_global_ycm_extra_conf = '$HOME/.ycm_extra_conf.py'" >> ~/.vimrc
+
+# asound
+cp ./dotfiles/asound/.asoundrc ~/
+
+# touchpad
+sudo cp ./dotfiles/touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
+
+# bash related
+cat ./dotfiles/bash/bashrc_append >> ~/.bashrc
+cat ./dotfiles/bash/xprofile_append >> ~/.xprofile

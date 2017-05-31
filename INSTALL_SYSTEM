@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# whole system update
+sudo pacman -Syyu
+
+# pip
+sudo pacman -S --no-confirm python-pip python2-pip
+
+# vim
+sudo pacman -S --no-confirm gvim
+
+# virtualbox
+sudo pacman -S --no-confirm virtualbox
+
+# termite
+sudo pacman -S --no-confirm termite
+
+# fcitx
+sudo pacman -S --no-confirm fcitx fcitx-gtk2 fcitx-gtk3 fcitx-configtool
+# sogoupinyin
+yaourt -S --noconfirm fcitx-sogoupinyin
+
+# radare2
+sudo pacman -S --no-confirm radare2
+
+# pwntools
+sudo pip3 install pwntools
+sudo pip2 install pwntools
+
+# chromium and firefox
+sudo pacman -S --no-confirm chromium firefox
+
+# pwndbg
+cd ~/
+git clone https://github.com/pwndbg/pwndbg
+./pwndbg/setup.sh
+
+# youcompleteme for vim
+# pathogen first
+sudo yaourt -S --no-confirm vim-pathogen
+# then dependencies
+sudo pacman -S --no-confirm cmake
+# I use rust, go, c family, python.
+sudo pacman -S --no-confirm go rust cargo
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --system-libclang --system-boost --clang-completer --racer-completer --gocode-completer
+cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm
+cp .ycm_extra_conf.py ~/
+
+# configs
+source ./INSTALL_CONFIGS
